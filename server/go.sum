@@ -1,0 +1,4 @@
+git.woa.com/back-end/framework/hive-go v0.0.96 h1:w4+aKy0gDw08kMryC0jnqfyeImHbw+k1SiK46GVgr7Q=
+git.woa.com/back-end/framework/hive-go v0.0.96/go.mod h1:m9MM1WXt0Wq0LTYATieNNwvu3eMB4XyIWRIjWYz6fIM=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

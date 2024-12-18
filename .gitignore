@@ -1,0 +1,4 @@
+build
+buildwin
+*.log
+server/server
