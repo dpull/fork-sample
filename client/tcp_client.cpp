@@ -2,20 +2,6 @@
 #include "util.h"
 #include <cstdio>
 #include <cstring>
-#ifdef _MSC_VER
-#include <Winsock2.h>
-#include <Ws2tcpip.h>
-
-#define SHUT_RDWR SD_BOTH
-#pragma comment(lib, "Ws2_32.lib")
-#else
-#include <arpa/inet.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <sys/ioctl.h>
-#include <sys/socket.h>
-#include <unistd.h>
-#endif
 
 bool tcp_client::connect(const char* ip, int port)
 {
@@ -31,13 +17,12 @@ bool tcp_client::connect(const char* ip, int port)
         log("error", "connect failed");
         return false;
     }
-#ifndef _MSC_VER
-    int flags = fcntl(sock_fd, F_GETFL, 0);
-    if (fcntl(sock_fd, F_SETFL, flags | O_NONBLOCK)) {
+
+    if (!set_nonblocking(sock_fd)) { 
         log("error", "set non blocking failed");
-        return false;
+        return false; 
     }
-#endif
+
     return true;
 }
 
